@@ -823,7 +823,7 @@
       }
       .clients-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 1px;
         background: var(--gray-100);
         border: 1px solid var(--gray-100);
@@ -1530,7 +1530,7 @@
           },
         ];
         return (
-          <section className="truck-gallery">
+          <section id="fleet" className="truck-gallery">
             <div className="truck-gallery-inner">
               <div className="section-header">
                 <div className="section-eyebrow">Our Fleet</div>
@@ -1680,11 +1680,6 @@
                       <span>{r}</span>
                     </div>
                   ))}
-                </div>
-                <div className="states-badge">
-                  <strong>28 States</strong>
-                  Full pan-India coverage available. Contact us for routes
-                  beyond our major corridors.
                 </div>
               </div>
               <div>
