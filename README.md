@@ -37,7 +37,7 @@ Hosted on GitHub Pages.
 
 ```
 satguru-logistics/
-├── index.html        # Entire website — HTML, CSS, and React all in one file
+├── satguru-logistics.html        # Entire website — HTML, CSS, and React all in one file
 ├── embed_images.py   # Optional script to download and base64-embed all truck images
 └── README.md
 ```
@@ -48,7 +48,7 @@ satguru-logistics/
 
 The quote form uses [EmailJS](https://www.emailjs.com) to send enquiries. The free tier allows **200 emails/month**.
 
-The credentials are stored as constants inside the `<script type="text/babel">` block in `index.html`:
+The credentials are stored as constants inside the `<script type="text/babel">` block in `satguru-logistics.html`:
 
 ```js
 const EMAILJS_PUBLIC_KEY = "your_public_key";
