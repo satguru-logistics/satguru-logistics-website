@@ -1,0 +1,2308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satguru Transport – Logistics & Transport Services Delhi</title>
+    <meta
+      name="description"
+      content="Satguru Transport – Reliable logistics and transport services across India. FTL, refrigerated transport, intercity & interstate services. 18+ years experience. Based in Delhi."
+    />
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --red: #1a3a5c;
+        --red-dark: #0f2540;
+        --red-light: #2563a8;
+        --red-faint: #eef3f9;
+        --accent: #e8a020;
+        --accent-dark: #c47a10;
+        --gray-50: #f5f7fa;
+        --gray-100: #e8ecf1;
+        --gray-300: #b8c2ce;
+        --gray-500: #6b7a8d;
+        --gray-700: #334155;
+        --gray-900: #0f1b2d;
+        --white: #ffffff;
+        --font-display: "Barlow Condensed", sans-serif;
+        --font-body: "Barlow", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        background: var(--white);
+        color: var(--gray-900);
+        line-height: 1.6;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      button {
+        cursor: pointer;
+        border: none;
+        background: none;
+        font: inherit;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(20, 18, 16, 0.96);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+        height: 64px;
+      }
+      .nav-logo {
+        font-family: var(--font-display);
+        font-size: 1.6rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        color: var(--white);
+      }
+      .nav-logo span {
+        color: var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+      .nav-links a {
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--white);
+      }
+      .nav-cta {
+        background: var(--red);
+        color: var(--white) !important;
+        padding: 8px 20px;
+        border-radius: 4px;
+        font-weight: 600 !important;
+        transition: background 0.2s !important;
+      }
+      .nav-cta:hover {
+        background: var(--red-light) !important;
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--white);
+        border-radius: 2px;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(20, 18, 16, 0.98);
+        padding: 1.5rem 2rem;
+        flex-direction: column;
+        gap: 1rem;
+        z-index: 99;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      section {
+        scroll-margin-top: 64px;
+      }
+
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #071320 0%,
+          #0f2540 50%,
+          #1a3a5c 100%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 100px 2rem 60px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: repeating-linear-gradient(
+          -55deg,
+          transparent,
+          transparent 40px,
+          rgba(232, 160, 32, 0.04) 40px,
+          rgba(232, 160, 32, 0.04) 41px
+        );
+      }
+      .hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: var(--red);
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 2px;
+        margin-bottom: 1.5rem;
+      }
+      .hero h1 {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 8vw, 6.5rem);
+        font-weight: 800;
+        line-height: 0.95;
+        letter-spacing: -0.01em;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+      }
+      .hero h1 em {
+        color: var(--accent);
+        font-style: normal;
+      }
+      .hero-sub {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.6);
+        max-width: 540px;
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
+      }
+      .hero-stats {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+      }
+      .hero-stat {
+        display: flex;
+        flex-direction: column;
+      }
+      .hero-stat-num {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--accent);
+        line-height: 1;
+      }
+      .hero-stat-label {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 4px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--red);
+        color: #fff;
+        padding: 14px 32px;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-primary:hover {
+        background: var(--red-light);
+        transform: translateY(-1px);
+      }
+      .btn-outline {
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        padding: 14px 32px;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          transform 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-outline:hover {
+        border-color: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.06);
+        transform: translateY(-1px);
+      }
+      .scroll-down {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        z-index: 1;
+      }
+      .scroll-arrow {
+        width: 1px;
+        height: 40px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+      }
+
+      .ticker {
+        background: var(--accent);
+        padding: 10px 0;
+        overflow: hidden;
+      }
+      .ticker-track {
+        display: flex;
+        gap: 3rem;
+        animation: ticker 25s linear infinite;
+        white-space: nowrap;
+      }
+      .ticker-item {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(10, 30, 60, 0.9);
+        flex-shrink: 0;
+      }
+      .ticker-dot {
+        color: rgba(10, 30, 60, 0.4);
+      }
+      @keyframes ticker {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .section-eyebrow {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--red);
+        margin-bottom: 0.75rem;
+      }
+      .section-title {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        line-height: 1.1;
+        color: var(--gray-900);
+      }
+      .section-title span {
+        color: var(--red);
+      }
+      .section-desc {
+        margin-top: 1rem;
+        font-size: 1rem;
+        color: var(--gray-500);
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.7;
+      }
+
+      .about {
+        background: var(--gray-50);
+        padding: 6rem 2rem;
+      }
+      .about-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+      .about-left {
+      }
+      .about-left .section-header {
+        text-align: left;
+        margin-bottom: 1.5rem;
+      }
+      .about-text {
+        color: var(--gray-500);
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+      .certs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 2rem;
+      }
+      .cert-badge {
+        background: var(--white);
+        border: 1px solid var(--gray-100);
+        padding: 6px 14px;
+        border-radius: 4px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--gray-700);
+        letter-spacing: 0.04em;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .cert-badge::before {
+        content: "";
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--red);
+      }
+      .about-right {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .about-card {
+        background: var(--white);
+        border: 1px solid var(--gray-100);
+        border-radius: 8px;
+        padding: 1.5rem;
+        transition: box-shadow 0.2s;
+      }
+      .about-card:hover {
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      }
+      .about-card:first-child {
+        background: var(--red);
+        color: #fff;
+      }
+      .about-card:first-child .card-num {
+        color: #fff;
+      }
+      .about-card:first-child .card-label {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .card-num {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--red);
+        line-height: 1;
+      }
+      .card-label {
+        font-size: 0.82rem;
+        color: var(--gray-500);
+        margin-top: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 500;
+      }
+
+      .services {
+        padding: 6rem 2rem;
+        background: var(--white);
+      }
+      .services-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .service-card {
+        border: 1px solid var(--gray-100);
+        border-radius: 8px;
+        padding: 2rem;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s,
+          transform 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+      .service-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--red);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s;
+      }
+      .service-card:hover {
+        border-color: var(--gray-300);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+        transform: translateY(-3px);
+      }
+      .service-card:hover::after {
+        transform: scaleX(1);
+      }
+      .service-icon {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, var(--red-faint), #dce8f7);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+        font-size: 1.5rem;
+        border: 1px solid rgba(37, 99, 168, 0.15);
+        box-shadow: 0 2px 8px rgba(37, 99, 168, 0.1);
+      }
+      .service-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: var(--red);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .service-title {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--gray-900);
+        margin-bottom: 0.75rem;
+      }
+      .service-desc {
+        font-size: 0.9rem;
+        color: var(--gray-500);
+        line-height: 1.7;
+      }
+
+      .truck-gallery {
+        background: var(--gray-50);
+        padding: 5rem 2rem;
+      }
+      .truck-gallery-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .truck-photos-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 260px 220px;
+        gap: 1rem;
+        margin-top: 2.5rem;
+      }
+      .truck-photo {
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+      .truck-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        display: block;
+      }
+      .truck-photo:hover img {
+        transform: scale(1.04);
+      }
+      .truck-photo-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(15, 37, 64, 0.85),
+          transparent
+        );
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 1.5rem 1rem 0.75rem;
+      }
+      .truck-photo.tall {
+        grid-row: 1 / 3;
+      }
+      @media (max-width: 900px) {
+        .truck-photos-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto;
+        }
+        .truck-photo.tall {
+          grid-row: auto;
+        }
+        .truck-photo {
+          height: 200px;
+        }
+      }
+      @media (max-width: 600px) {
+        .truck-photos-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .fleet {
+        background: var(--gray-900);
+        padding: 6rem 2rem;
+      }
+      .fleet-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .fleet .section-title {
+        color: var(--white);
+      }
+      .fleet .section-eyebrow {
+        color: var(--accent);
+      }
+      .fleet .section-desc {
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .fleet-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-top: 3rem;
+      }
+      .fleet-item {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: center;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+      .fleet-item:hover {
+        background: rgba(37, 99, 168, 0.12);
+        border-color: rgba(37, 99, 168, 0.35);
+      }
+      .fleet-count {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--accent);
+        line-height: 1;
+      }
+      .fleet-type {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 6px;
+        font-weight: 500;
+      }
+      .fleet-special {
+        margin-top: 2rem;
+        background: rgba(37, 99, 168, 0.15);
+        border: 1px solid rgba(37, 99, 168, 0.3);
+        border-radius: 8px;
+        padding: 1.5rem 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .fleet-special-label {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--accent);
+      }
+      .fleet-special-desc {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .industries {
+        padding: 6rem 2rem;
+        background: var(--white);
+      }
+      .industries-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .industries-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+        margin-top: 3rem;
+      }
+      .industry-pill {
+        padding: 10px 20px;
+        border: 1px solid var(--gray-100);
+        border-radius: 100px;
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--gray-700);
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          color 0.2s;
+        cursor: default;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .industry-pill:hover {
+        background: var(--red);
+        border-color: var(--red);
+        color: #fff;
+      }
+      .industry-pill span {
+        font-size: 1rem;
+      }
+
+      .coverage {
+        background: var(--gray-50);
+        padding: 6rem 2rem;
+      }
+      .coverage-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+      .routes-list {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .route-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+        background: var(--white);
+        border: 1px solid var(--gray-100);
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--gray-700);
+        transition: border-color 0.2s;
+      }
+      .route-item:hover {
+        border-color: var(--red);
+      }
+      .route-origin {
+        color: var(--red);
+        font-weight: 700;
+      }
+      .route-arrow {
+        color: var(--gray-300);
+        font-size: 0.75rem;
+      }
+      .states-badge {
+        margin-top: 2rem;
+        background: var(--red);
+        color: #fff;
+        padding: 1rem 1.5rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      .states-badge strong {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 800;
+        display: block;
+      }
+
+      .clients {
+        padding: 6rem 2rem;
+        background: var(--white);
+      }
+      .clients-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .clients-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--gray-100);
+        border: 1px solid var(--gray-100);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 3rem;
+      }
+      .client-cell {
+        background: var(--white);
+        padding: 1.5rem 2rem;
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--gray-700);
+        transition: background 0.15s;
+      }
+      .client-cell:hover {
+        background: var(--red-faint);
+      }
+
+      .quote-section {
+        background: linear-gradient(135deg, #0f2540 0%, #1a3a5c 100%);
+        padding: 6rem 2rem;
+      }
+      .quote-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .quote-inner .section-eyebrow {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .quote-inner .section-title {
+        color: var(--white);
+      }
+      .quote-inner .section-desc {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .quote-form {
+        background: var(--white);
+        border-radius: 10px;
+        padding: 2.5rem;
+        margin-top: 3rem;
+        text-align: left;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .form-group.full {
+        grid-column: 1 / -1;
+      }
+      .form-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--gray-500);
+      }
+      .form-input,
+      .form-select,
+      .form-textarea {
+        padding: 10px 14px;
+        border: 1px solid var(--gray-100);
+        border-radius: 6px;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: var(--gray-900);
+        transition: border-color 0.2s;
+        outline: none;
+        background: var(--gray-50);
+      }
+      .form-input:focus,
+      .form-select:focus,
+      .form-textarea:focus {
+        border-color: var(--red);
+        background: var(--white);
+      }
+      .form-textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+      .form-submit {
+        margin-top: 1.5rem;
+        background: var(--red);
+        color: #fff;
+        padding: 14px 40px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        width: 100%;
+      }
+      .form-submit:hover {
+        background: var(--red-light);
+        transform: translateY(-1px);
+      }
+
+      .contact {
+        background: var(--gray-50);
+        padding: 6rem 2rem;
+      }
+      .contact-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+      .contact-detail {
+        display: flex;
+        gap: 1rem;
+        padding: 1.25rem 0;
+        border-bottom: 1px solid var(--gray-100);
+      }
+      .contact-detail:last-child {
+        border-bottom: none;
+      }
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--red-faint);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .contact-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--gray-500);
+        font-weight: 600;
+      }
+      .contact-value {
+        font-size: 0.95rem;
+        color: var(--gray-700);
+        margin-top: 2px;
+        line-height: 1.5;
+      }
+      .contact-value a {
+        color: var(--red);
+      }
+      .contact-map {
+        background: var(--gray-100);
+        border-radius: 10px;
+        overflow: hidden;
+        height: 100%;
+        min-height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray-500);
+        font-size: 0.9rem;
+        flex-direction: column;
+        gap: 1rem;
+        border: 1px solid var(--gray-100);
+      }
+
+      .footer {
+        background: var(--gray-900);
+        padding: 4rem 2rem 2rem;
+      }
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .footer-logo {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--white);
+        letter-spacing: 0.04em;
+        margin-bottom: 1rem;
+      }
+      .footer-logo span {
+        color: var(--accent);
+      }
+      .footer-tagline {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.4);
+        line-height: 1.7;
+      }
+      .footer-col-title {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 1rem;
+      }
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .footer-links a {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.6);
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--white);
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 2rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-copy {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .footer-gst {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.2);
+      }
+
+      .floating-btns {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        z-index: 200;
+      }
+      .float-btn {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .float-btn:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+      }
+      .float-wa {
+        background: #25d366;
+      }
+      .float-call {
+        background: var(--red);
+      }
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .about-inner,
+        .coverage-inner,
+        .contact-inner {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .services-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .fleet-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .clients-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-map {
+          min-height: 250px;
+        }
+      }
+      @media (max-width: 600px) {
+        .hero h1 {
+          font-size: 3rem;
+        }
+        .hero-stats {
+          gap: 1.5rem;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .clients-grid {
+          grid-template-columns: 1fr;
+        }
+        .fleet-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-top {
+          grid-template-columns: 1fr;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+
+      const EMAILJS_PUBLIC_KEY = "9z-2W4NsurNN32go-";
+      const EMAILJS_SERVICE_ID = "service_zyzd6yd";
+      const EMAILJS_TEMPLATE_ID = "template_n2vb5rr";
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+      const SERVICES = [
+        {
+          icon: (
+            <svg viewBox="0 0 24 24">
+              <rect x="1" y="3" width="15" height="13" rx="2" />
+              <path d="M16 8h4l3 4v4h-7V8z" />
+              <circle cx="5.5" cy="18.5" r="2.5" />
+              <circle cx="18.5" cy="18.5" r="2.5" />
+            </svg>
+          ),
+          title: "FTL – Pan India",
+          desc: "Dedicated full truck load services across India ensuring safe, fast, and reliable delivery for bulk shipments.",
+        },
+        {
+          icon: (
+            <svg viewBox="0 0 24 24">
+              <path d="M17 1H7a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2z" />
+              <path d="M7 6h10M7 10h10M7 14h6" />
+            </svg>
+          ),
+          title: "Lorry to Lorry",
+          desc: "Efficient lorry-to-lorry services for quick transfers within Delhi NCR and nearby regions.",
+        },
+        {
+          icon: (
+            <svg viewBox="0 0 24 24">
+              <path d="M3 12h18M3 6h18M3 18h18" />
+              <path d="M12 3v18" />
+              <circle cx="12" cy="12" r="9" />
+            </svg>
+          ),
+          title: "Intercity Transport",
+          desc: "Reliable transportation between major cities with time-bound delivery commitments and full tracking.",
+        },
+        {
+          icon: (
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+          ),
+          title: "Interstate Transport",
+          desc: "Safe and efficient interstate cargo movement with complete logistics support across all 28 states.",
+        },
+        {
+          icon: (
+            <svg viewBox="0 0 24 24">
+              <line x1="12" y1="2" x2="12" y2="22" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" />
+              <circle cx="12" cy="12" r="2" />
+              <circle cx="12" cy="2" r="1" />
+              <circle cx="12" cy="22" r="1" />
+              <circle cx="2" cy="12" r="1" />
+              <circle cx="22" cy="12" r="1" />
+              <circle cx="4.93" cy="4.93" r="1" />
+              <circle cx="19.07" cy="19.07" r="1" />
+              <circle cx="19.07" cy="4.93" r="1" />
+              <circle cx="4.93" cy="19.07" r="1" />
+            </svg>
+          ),
+          title: "Refrigerated Transport",
+          desc: "Temperature-controlled transport for pharmaceuticals, food, and sensitive goods requiring cold chain.",
+        },
+        {
+          icon: (
+            <svg viewBox="0 0 24 24">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+          ),
+          title: "On-Demand Transport",
+          desc: "Vehicles available within 30 minutes across North & West India for urgent transportation requirements.",
+        },
+      ];
+
+      const FLEET = [
+        { count: "2", type: "TATA ACE" },
+        { count: "2", type: "TATA 407" },
+        { count: "3", type: "14 FT Trucks" },
+        { count: "3", type: "17 FT Trucks" },
+        { count: "4", type: "20 FT Trucks" },
+        { count: "6", type: "22 FT Trucks" },
+        { count: "4", type: "Refrigerated 22 FT" },
+        { count: "20+", type: "Total Fleet" },
+      ];
+
+      const INDUSTRIES = [
+        { icon: "💊", name: "Pharma Industry" },
+        { icon: "🔩", name: "Steel Industry" },
+        { icon: "🏭", name: "Manufacturing" },
+        { icon: "🍽️", name: "Food & Beverages" },
+        { icon: "🪑", name: "Furniture Industry" },
+        { icon: "🚗", name: "Commercial Automobiles" },
+        { icon: "⚙️", name: "Automotive Products" },
+        { icon: "👗", name: "Apparels Industry" },
+        { icon: "🔧", name: "Fabrication Industry" },
+        { icon: "📡", name: "Instrumentation" },
+      ];
+
+      const ROUTES = [
+        "Mumbai",
+        "Punjab",
+        "Madhya Pradesh",
+        "Himachal Pradesh",
+        "Jammu",
+        "Uttarakhand",
+        "Rajasthan",
+      ];
+
+      const CLIENTS = [
+        "Hellmann Worldwide Logistics",
+        "CH Robinson Worldwide Freight",
+        "JAS Forwarding Pvt Ltd",
+        "Savino Del Bene Pvt Ltd",
+        "DSV Air and Sea Pvt Ltd",
+        "PGS Global Forwarding",
+        "20Cube Logistics Pvt Ltd",
+        "AIT Worldwide India Pvt Ltd",
+        "All-ways Logistics India",
+        "Dart Global Pvt Ltd",
+        "Jeena & Company",
+        "JMP Global Express Pvt Ltd",
+        "RG Cargo Logistics Pvt Ltd",
+        "Rohling India Pvt Ltd",
+      ];
+
+      const TICKER_ITEMS = [
+        "FTL Services Pan India",
+        "Refrigerated Transport",
+        "24/7 On-Demand",
+        "30-Min Deployment",
+        "ISO 9001:2015 Certified",
+        "GDP Certified",
+        "18+ Years Experience",
+        "20+ Fleet Vehicles",
+        "North & West India Network",
+        "Delhi NCR Specialists",
+      ];
+
+      function Navbar({ menuOpen, setMenuOpen }) {
+        const links = [
+          { href: "#about", label: "About" },
+          { href: "#services", label: "Services" },
+          { href: "#fleet", label: "Fleet" },
+          { href: "#industries", label: "Industries" },
+          { href: "#clients", label: "Clients" },
+          { href: "#contact", label: "Contact" },
+          { href: "#quote", label: "Get a Quote", cls: "nav-cta" },
+        ];
+        return (
+          <>
+            <nav className="nav">
+              <div className="nav-inner">
+                <a href="#home" className="nav-logo">
+                  SATGURU <span>TRANSPORT</span>
+                </a>
+                <div className="nav-links">
+                  {links.map((l) => (
+                    <a key={l.href} href={l.href} className={l.cls || ""}>
+                      {l.label}
+                    </a>
+                  ))}
+                </div>
+                <div
+                  className="hamburger"
+                  onClick={() => setMenuOpen((o) => !o)}
+                >
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            </nav>
+            <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+              {links.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+          </>
+        );
+      }
+
+      function Hero() {
+        return (
+          <section id="home" className="hero">
+            <div className="hero-inner">
+              <div className="hero-badge">Est. 2009 · Delhi, India</div>
+              <h1>
+                Move India.
+                <br />
+                <em>Move Faster.</em>
+              </h1>
+              <p className="hero-sub">
+                On-demand logistics & transport solutions across all 28 states.
+                Vehicles deployed within 30 minutes — 24 hours a day, 7 days a
+                week.
+              </p>
+              <div className="hero-stats">
+                <div className="hero-stat">
+                  <span className="hero-stat-num">18+</span>
+                  <span className="hero-stat-label">Years of Experience</span>
+                </div>
+                <div className="hero-stat">
+                  <span className="hero-stat-num">20+</span>
+                  <span className="hero-stat-label">Fleet Vehicles</span>
+                </div>
+                <div className="hero-stat">
+                  <span className="hero-stat-num">28</span>
+                  <span className="hero-stat-label">States Covered</span>
+                </div>
+                <div className="hero-stat">
+                  <span className="hero-stat-num">30m</span>
+                  <span className="hero-stat-label">Vehicle Deployment</span>
+                </div>
+              </div>
+              <div className="hero-actions">
+                <a href="#quote" className="btn-primary">
+                  Get a Free Quote →
+                </a>
+                <a href="tel:+919971130303" className="btn-outline">
+                  📞 Call Now
+                </a>
+              </div>
+            </div>
+            <div className="scroll-down">
+              <span>Scroll</span>
+              <div className="scroll-arrow" />
+            </div>
+          </section>
+        );
+      }
+
+      function Ticker() {
+        const doubled = [...TICKER_ITEMS, ...TICKER_ITEMS];
+        return (
+          <div className="ticker">
+            <div className="ticker-track">
+              {doubled.map((item, i) => (
+                <span key={i} className="ticker-item">
+                  {item} <span className="ticker-dot">◆</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        );
+      }
+
+      function About() {
+        return (
+          <section id="about" className="about">
+            <div className="about-inner">
+              <div className="about-left">
+                <div className="section-header">
+                  <div className="section-eyebrow">About Us</div>
+                  <h2 className="section-title">
+                    India's Reliable <span>Logistics</span> Partner
+                  </h2>
+                </div>
+                <p className="about-text">
+                  Since 2009, Satguru Transport has been delivering reliable,
+                  time-bound transportation solutions to businesses across
+                  India. With a strong presence in North and West India, we
+                  specialize in fast vehicle deployment and
+                  temperature-controlled freight.
+                </p>
+                <p className="about-text">
+                  Our commitment to quality, backed by ISO 9001:2015
+                  certification and GDP compliance, ensures every shipment meets
+                  the highest industry standards — whether it's pharmaceutical
+                  cargo, steel, apparel, or perishable goods.
+                </p>
+                <div className="certs">
+                  <span className="cert-badge">ISO 9001:2015</span>
+                  <span className="cert-badge">GDP Certified</span>
+                  <span className="cert-badge">Quality Management System</span>
+                </div>
+              </div>
+              <div className="about-right">
+                {[
+                  { num: "18+", label: "Years Experience" },
+                  { num: "20+", label: "Vehicles in Fleet" },
+                  { num: "14+", label: "Major Clients" },
+                  { num: "28", label: "States Covered" },
+                ].map((c, i) => (
+                  <div key={i} className="about-card">
+                    <div className="card-num">{c.num}</div>
+                    <div className="card-label">{c.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Services() {
+        return (
+          <section id="services" className="services">
+            <div className="services-inner">
+              <div className="section-header">
+                <div className="section-eyebrow">What We Offer</div>
+                <h2 className="section-title">
+                  Our <span>Services</span>
+                </h2>
+                <p className="section-desc">
+                  Comprehensive transport solutions tailored to the needs of
+                  modern businesses across India.
+                </p>
+              </div>
+              <div className="services-grid">
+                {SERVICES.map((s, i) => (
+                  <div key={i} className="service-card">
+                    <div className="service-icon">{s.icon}</div>
+                    <div className="service-title">{s.title}</div>
+                    <div className="service-desc">{s.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function TruckGallery() {
+        const photos = [
+          {
+            src: "images/reefer.png",
+            label: "Eicher Refrigerated 22 FT",
+            tall: true,
+            spec: "Cold Chain · Pharma & Food",
+          },
+          {
+            src: "images/20-ft.jpg",
+            label: "14 FT Truck",
+            tall: false,
+            spec: "City & Intercity Cargo",
+          },
+          {
+            src: "images/407.jpg",
+            label: "TATA 407",
+            tall: false,
+            spec: "Light Commercial · LCV",
+          },
+          {
+            src: "images/ace.webp",
+            label: "TATA ACE",
+            tall: false,
+            spec: "Mini Truck · Last Mile",
+          },
+          {
+            src: "images/17-ft.avif",
+            label: "Eicher 17 FT Truck",
+            tall: false,
+            spec: "Medium Duty · Pan India",
+          },
+        ];
+        return (
+          <section className="truck-gallery">
+            <div className="truck-gallery-inner">
+              <div className="section-header">
+                <div className="section-eyebrow">Our Fleet</div>
+                <h2 className="section-title">
+                  Vehicles Built for <span>Every Load</span>
+                </h2>
+                <p className="section-desc">
+                  Our diverse, well-maintained fleet is ready to handle any
+                  cargo — from last-mile mini trucks to full-size refrigerated
+                  transport.
+                </p>
+              </div>
+              <div className="truck-photos-grid">
+                {photos.map((p, i) => (
+                  <div
+                    key={i}
+                    className={`truck-photo${p.tall ? " tall" : ""}`}
+                  >
+                    <img
+                      src={p.src}
+                      alt={p.label}
+                      loading="lazy"
+                      onError={(e) => {
+                        e.target.style.background = "#1a3a5c";
+                        e.target.style.minHeight = "160px";
+                      }}
+                    />
+                    <div className="truck-photo-label">
+                      <div
+                        style={{
+                          fontWeight: 700,
+                          fontSize: "0.85rem",
+                          letterSpacing: "0.08em",
+                        }}
+                      >
+                        {p.label}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: "0.72rem",
+                          opacity: 0.75,
+                          marginTop: "2px",
+                        }}
+                      >
+                        {p.spec}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Fleet() {
+        return (
+          <section id="fleet" className="fleet">
+            <div className="fleet-inner">
+              <div className="section-header">
+                <div className="section-eyebrow">Our Fleet</div>
+                <h2 className="section-title">
+                  Built For <span>Every Load</span>
+                </h2>
+                <p className="section-desc">
+                  A diverse fleet of 20+ vehicles ready to handle any cargo
+                  requirement — from small deliveries to full truck loads.
+                </p>
+              </div>
+              <div className="fleet-grid">
+                {FLEET.map((f, i) => (
+                  <div key={i} className="fleet-item">
+                    <div className="fleet-count">{f.count}</div>
+                    <div className="fleet-type">{f.type}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="fleet-special">
+                <div>
+                  <div className="fleet-special-label">
+                    ❄️ Refrigerated Transport Available
+                  </div>
+                  <div className="fleet-special-desc">
+                    4 × 22 FT refrigerated trucks for temperature-sensitive
+                    pharmaceutical, food & beverage cargo.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Industries() {
+        return (
+          <section id="industries" className="industries">
+            <div className="industries-inner">
+              <div className="section-header">
+                <div className="section-eyebrow">Industries We Serve</div>
+                <h2 className="section-title">
+                  Expertise Across <span>Every Sector</span>
+                </h2>
+                <p className="section-desc">
+                  From pharmaceuticals to steel, we understand the unique
+                  logistics requirements of every industry we serve.
+                </p>
+              </div>
+              <div className="industries-grid">
+                {INDUSTRIES.map((ind, i) => (
+                  <div key={i} className="industry-pill">
+                    <span>{ind.icon}</span> {ind.name}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Coverage() {
+        return (
+          <section id="coverage" className="coverage">
+            <div className="coverage-inner">
+              <div>
+                <div className="section-header" style={{ textAlign: "left" }}>
+                  <div className="section-eyebrow">Coverage Area</div>
+                  <h2 className="section-title">
+                    Pan India <span>Reach</span>
+                  </h2>
+                </div>
+                <p
+                  style={{
+                    color: "var(--gray-500)",
+                    lineHeight: 1.8,
+                    marginTop: "1rem",
+                  }}
+                >
+                  Preferred expertise in North and West India, with operations
+                  spanning all 28 states. Our major routes connect Delhi to key
+                  economic hubs across the country.
+                </p>
+                <div className="routes-list">
+                  {ROUTES.map((r, i) => (
+                    <div key={i} className="route-item">
+                      <span className="route-origin">Delhi</span>
+                      <span className="route-arrow">→</span>
+                      <span>{r}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="states-badge">
+                  <strong>28 States</strong>
+                  Full pan-India coverage available. Contact us for routes
+                  beyond our major corridors.
+                </div>
+              </div>
+              <div>
+                <div className="section-header" style={{ textAlign: "left" }}>
+                  <div className="section-eyebrow">Strengths</div>
+                  <h2 className="section-title">
+                    Why <span>Choose Us</span>
+                  </h2>
+                </div>
+                <div
+                  style={{
+                    marginTop: "2rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "1rem",
+                  }}
+                >
+                  {[
+                    {
+                      icon: "⚡",
+                      title: "30-Minute Deployment",
+                      desc: "Trucks available within 30 minutes for urgent requirements across North & West India.",
+                    },
+                    {
+                      icon: "🌙",
+                      title: "24/7 Operations",
+                      desc: "Round-the-clock service with no downtime. We're always on, so your supply chain never stops.",
+                    },
+                    {
+                      icon: "❄️",
+                      title: "Cold Chain Capable",
+                      desc: "GDP-certified refrigerated fleet for pharmaceutical and perishable cargo transport.",
+                    },
+                    {
+                      icon: "🏅",
+                      title: "ISO 9001:2015",
+                      desc: "Quality management systems certified to international standards for reliable service delivery.",
+                    },
+                  ].map((f, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: "flex",
+                        gap: "1rem",
+                        alignItems: "flex-start",
+                        padding: "1rem",
+                        background: "var(--white)",
+                        border: "1px solid var(--gray-100)",
+                        borderRadius: "8px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontSize: "1.4rem",
+                          width: "40px",
+                          textAlign: "center",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {f.icon}
+                      </div>
+                      <div>
+                        <div
+                          style={{
+                            fontWeight: 600,
+                            fontSize: "0.95rem",
+                            color: "var(--gray-900)",
+                            marginBottom: "4px",
+                          }}
+                        >
+                          {f.title}
+                        </div>
+                        <div
+                          style={{
+                            fontSize: "0.85rem",
+                            color: "var(--gray-500)",
+                            lineHeight: 1.6,
+                          }}
+                        >
+                          {f.desc}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Clients() {
+        return (
+          <section id="clients" className="clients">
+            <div className="clients-inner">
+              <div className="section-header">
+                <div className="section-eyebrow">Trusted By</div>
+                <h2 className="section-title">
+                  Our <span>Clients</span>
+                </h2>
+                <p className="section-desc">
+                  Partnering with leading global freight forwarders and
+                  logistics companies across India.
+                </p>
+              </div>
+              <div className="clients-grid">
+                {CLIENTS.map((c, i) => (
+                  <div key={i} className="client-cell">
+                    {c}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function QuoteSection() {
+        const [form, setForm] = useState({
+          name: "",
+          company: "",
+          phone: "",
+          email: "",
+          from: "",
+          to: "",
+          vehicle: "",
+          cargo: "",
+          message: "",
+        });
+        const [submitted, setSubmitted] = useState(false);
+        const [sending, setSending] = useState(false);
+        const [error, setError] = useState("");
+
+        const handleChange = (e) =>
+          setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+
+        const handleSubmit = () => {
+          if (!form.name || !form.phone) {
+            setError("Please fill in your name and phone number.");
+            return;
+          }
+          setError("");
+          setSending(true);
+
+          emailjs
+            .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+              from_name: form.name,
+              phone: form.phone,
+              email: form.email || "Not provided",
+              company: form.company || "Not provided",
+              from_city: form.from || "Not specified",
+              to_city: form.to || "Not specified",
+              vehicle: form.vehicle || "Not specified",
+              cargo: form.cargo || "Not specified",
+              message: form.message || "—",
+            })
+            .then(() => {
+              setSending(false);
+              setSubmitted(true);
+            })
+            .catch((err) => {
+              setSending(false);
+              setError(
+                "Something went wrong. Please call us directly or try again.",
+              );
+              console.error("EmailJS error:", err);
+            });
+        };
+
+        return (
+          <section id="quote" className="quote-section">
+            <div className="quote-inner">
+              <div className="section-eyebrow">Request a Quote</div>
+              <h2 className="section-title" style={{ color: "var(--white)" }}>
+                Get Your{" "}
+                <span style={{ color: "rgba(255,255,255,0.5)" }}>
+                  Free Quote
+                </span>
+              </h2>
+              <p className="section-desc">
+                Tell us about your shipment and we'll get back to you within the
+                hour.
+              </p>
+              <div className="quote-form">
+                {submitted ? (
+                  <div style={{ textAlign: "center", padding: "2rem" }}>
+                    <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>
+                      ✅
+                    </div>
+                    <h3
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "1.8rem",
+                        fontWeight: 800,
+                        textTransform: "uppercase",
+                        color: "var(--gray-900)",
+                        marginBottom: "0.5rem",
+                      }}
+                    >
+                      Thank You!
+                    </h3>
+                    <p style={{ color: "var(--gray-500)" }}>
+                      We've received your request and will contact you within
+                      the hour.
+                    </p>
+                    <div
+                      style={{
+                        marginTop: "1.5rem",
+                        display: "flex",
+                        gap: "1rem",
+                        justifyContent: "center",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <a href="tel:+919971130303" className="btn-primary">
+                        📞 Call Us Now
+                      </a>
+                      <button
+                        className="btn-outline"
+                        style={{
+                          color: "var(--gray-700)",
+                          border: "1.5px solid var(--gray-300)",
+                        }}
+                        onClick={() => setSubmitted(false)}
+                      >
+                        Submit Another
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="form-grid">
+                      {[
+                        {
+                          name: "name",
+                          placeholder: "Your Full Name",
+                          label: "Name *",
+                        },
+                        {
+                          name: "company",
+                          placeholder: "Company Name",
+                          label: "Company",
+                        },
+                        {
+                          name: "phone",
+                          placeholder: "+91 99711 30303",
+                          label: "Phone *",
+                        },
+                        {
+                          name: "email",
+                          placeholder: "email@company.com",
+                          label: "Email",
+                        },
+                        {
+                          name: "from",
+                          placeholder: "Origin City",
+                          label: "From",
+                        },
+                        {
+                          name: "to",
+                          placeholder: "Destination City",
+                          label: "To",
+                        },
+                      ].map((f) => (
+                        <div key={f.name} className="form-group">
+                          <label className="form-label">{f.label}</label>
+                          <input
+                            className="form-input"
+                            name={f.name}
+                            placeholder={f.placeholder}
+                            value={form[f.name]}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      ))}
+                      <div className="form-group">
+                        <label className="form-label">Vehicle Type</label>
+                        <select
+                          className="form-select"
+                          name="vehicle"
+                          value={form.vehicle}
+                          onChange={handleChange}
+                        >
+                          <option value="">Select vehicle...</option>
+                          <option>TATA ACE</option>
+                          <option>TATA 407</option>
+                          <option>14 FT Truck</option>
+                          <option>17 FT Truck</option>
+                          <option>20 FT Truck</option>
+                          <option>22 FT Truck</option>
+                          <option>Refrigerated 22 FT</option>
+                        </select>
+                      </div>
+                      <div className="form-group">
+                        <label className="form-label">Cargo Type</label>
+                        <input
+                          className="form-input"
+                          name="cargo"
+                          placeholder="e.g. Pharmaceuticals, Steel..."
+                          value={form.cargo}
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className="form-group full">
+                        <label className="form-label">Additional Details</label>
+                        <textarea
+                          className="form-textarea"
+                          name="message"
+                          placeholder="Any special requirements, weight, timeline..."
+                          value={form.message}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    </div>
+                    {error && (
+                      <p
+                        style={{
+                          color: "#e53e3e",
+                          marginBottom: "0.75rem",
+                          fontSize: "0.9rem",
+                          textAlign: "center",
+                        }}
+                      >
+                        ⚠️ {error}
+                      </p>
+                    )}
+                    <button
+                      className="form-submit"
+                      onClick={handleSubmit}
+                      disabled={sending}
+                      style={{
+                        opacity: sending ? 0.7 : 1,
+                        cursor: sending ? "not-allowed" : "pointer",
+                      }}
+                    >
+                      {sending ? "Sending…" : "Submit Quote Request →"}
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Contact() {
+        return (
+          <section id="contact" className="contact">
+            <div className="contact-inner">
+              <div>
+                <div className="section-header" style={{ textAlign: "left" }}>
+                  <div className="section-eyebrow">Get In Touch</div>
+                  <h2 className="section-title">
+                    Contact <span>Us</span>
+                  </h2>
+                </div>
+                {[
+                  {
+                    icon: "📍",
+                    label: "Office Address",
+                    value:
+                      "E-3/22, 1st Floor, Sector-11, Rohini\nNew Delhi – 110085",
+                  },
+                  {
+                    icon: "📞",
+                    label: "Call Us",
+                    value: (
+                      <>
+                        <a href="tel:+919971130303">+91 99711 30303</a>
+                        <br />
+                        <a href="tel:+918826912626">+91 88269 12626</a>
+                        <br />
+                        <a href="tel:+919990830303">+91 99908 30303</a>
+                      </>
+                    ),
+                  },
+                  {
+                    icon: "✉️",
+                    label: "Email Us",
+                    value: (
+                      <a href="mailto:jolly@satgurulogistics.com">
+                        jolly@satgurulogistics.com
+                      </a>
+                    ),
+                  },
+                  { icon: "🏛️", label: "GST Number", value: "07AJEPK1323R1Z0" },
+                  {
+                    icon: "⏰",
+                    label: "Working Hours",
+                    value: "24 × 7 – Always Available",
+                  },
+                ].map((d, i) => (
+                  <div key={i} className="contact-detail">
+                    <div className="contact-icon">{d.icon}</div>
+                    <div>
+                      <div className="contact-label">{d.label}</div>
+                      <div
+                        className="contact-value"
+                        style={{ whiteSpace: "pre-line" }}
+                      >
+                        {d.value}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                <div
+                  style={{
+                    marginTop: "2rem",
+                    display: "flex",
+                    gap: "1rem",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <a
+                    href="https://wa.me/919971130303"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-primary"
+                    style={{ background: "#25D366" }}
+                  >
+                    💬 WhatsApp Us
+                  </a>
+                  <a href="tel:+919971130303" className="btn-primary">
+                    📞 Call Now
+                  </a>
+                </div>
+              </div>
+              <div className="contact-map">
+                <div style={{ fontSize: "2.5rem" }}>🗺️</div>
+                <div style={{ fontWeight: 600, color: "var(--gray-700)" }}>
+                  Rohini, New Delhi
+                </div>
+                <div
+                  style={{
+                    fontSize: "0.85rem",
+                    textAlign: "center",
+                    maxWidth: "220px",
+                  }}
+                >
+                  E-3/22, 1st Floor, Sector-11, Rohini, New Delhi – 110085
+                </div>
+                <a
+                  href="https://maps.google.com/?q=E-3/22+Sector+11+Rohini+New+Delhi+110085"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    marginTop: "0.5rem",
+                    color: "var(--red)",
+                    fontWeight: 600,
+                    fontSize: "0.85rem",
+                  }}
+                >
+                  View on Google Maps →
+                </a>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function Footer() {
+        const navLinks = [
+          "#home",
+          "#about",
+          "#services",
+          "#fleet",
+          "#industries",
+          "#clients",
+          "#coverage",
+          "#quote",
+          "#contact",
+        ];
+        const navLabels = [
+          "Home",
+          "About Us",
+          "Services",
+          "Fleet",
+          "Industries",
+          "Clients",
+          "Coverage",
+          "Get a Quote",
+          "Contact",
+        ];
+
+        return (
+          <footer className="footer">
+            <div className="footer-inner">
+              <div className="footer-top">
+                <div>
+                  <div className="footer-logo">
+                    SATGURU <span>TRANSPORT</span>
+                  </div>
+                  <div className="footer-tagline">
+                    Reliable logistics & transport solutions across India.
+                    On-demand, 24/7, with vehicles deployed in 30 minutes or
+                    less.
+                  </div>
+                  <div
+                    style={{
+                      marginTop: "1.5rem",
+                      display: "flex",
+                      gap: "0.5rem",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    {["ISO 9001:2015", "GDP Certified"].map((c) => (
+                      <span
+                        key={c}
+                        style={{
+                          padding: "4px 10px",
+                          background: "rgba(37,99,168,0.15)",
+                          border: "1px solid rgba(37,99,168,0.3)",
+                          borderRadius: "4px",
+                          fontSize: "0.75rem",
+                          color: "#5ba3e8",
+                          fontWeight: 600,
+                        }}
+                      >
+                        {c}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <div className="footer-col-title">Quick Links</div>
+                  <div className="footer-links">
+                    {navLinks.slice(0, 5).map((h, i) => (
+                      <a key={h} href={h}>
+                        {navLabels[i]}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <div className="footer-col-title">Services</div>
+                  <div className="footer-links">
+                    {[
+                      "FTL Pan India",
+                      "Lorry to Lorry",
+                      "Intercity Transport",
+                      "Interstate Transport",
+                      "Refrigerated",
+                      "On-Demand",
+                    ].map((s) => (
+                      <a key={s} href="#services">
+                        {s}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <div className="footer-col-title">Contact</div>
+                  <div className="footer-links">
+                    <a href="tel:+919971130303">+91 99711 30303</a>
+                    <a href="tel:+918826912626">+91 88269 12626</a>
+                    <a href="tel:+919990830303">+91 99908 30303</a>
+                    <a href="mailto:jolly@satgurulogistics.com">
+                      jolly@satgurulogistics.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="footer-bottom">
+                <div className="footer-copy">
+                  © 2024 Satguru Transport. All rights reserved. Est. 2009.
+                </div>
+                <div className="footer-gst">GST: 07AJEPK1323R1Z0</div>
+              </div>
+            </div>
+          </footer>
+        );
+      }
+
+      function FloatingButtons() {
+        return (
+          <div className="floating-btns">
+            <a
+              href="https://wa.me/919971130303"
+              target="_blank"
+              rel="noreferrer"
+              className="float-btn float-wa"
+              title="WhatsApp"
+            >
+              💬
+            </a>
+            <a
+              href="tel:+919971130303"
+              className="float-btn float-call"
+              title="Call"
+            >
+              📞
+            </a>
+          </div>
+        );
+      }
+
+      function App() {
+        const [menuOpen, setMenuOpen] = useState(false);
+        return (
+          <>
+            <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+            <Hero />
+            <Ticker />
+            <About />
+            <Services />
+            <TruckGallery />
+            <Industries />
+            <Coverage />
+            <Clients />
+            <QuoteSection />
+            <Contact />
+            <Footer />
+            <FloatingButtons />
+          </>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>
